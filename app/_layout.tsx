@@ -1,7 +1,6 @@
-import {DarkTheme, DefaultTheme, ThemeProvider} from '@react-navigation/native';
 import {SplashScreen, Stack} from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {useColorScheme} from 'react-native';
+import StyleProvider from '../src/style/StyleProvider';
 import {useEffect} from 'react';
 import {useFonts} from 'expo-font';
 
@@ -45,15 +44,14 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-    const colorScheme = useColorScheme();
 
     return (
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <StyleProvider>
             <Stack>
                 <Stack.Screen name="(tabs)" options={{headerShown: false}} />
 
                 <Stack.Screen name="modal" options={{presentation: 'modal'}} />
             </Stack>
-        </ThemeProvider>
+        </StyleProvider>
     );
 }
