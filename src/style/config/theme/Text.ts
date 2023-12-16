@@ -1,9 +1,9 @@
 import {createStyle} from '@gluestack-style/react';
 
 export const Text = createStyle({
-    color: '$textLight700',
+    color: '$coffeeTertiary',
     _dark: {
-        color: '$textDark200',
+        color: '$latteFoamTertiary',
     },
     fontWeight: '$normal',
     fontFamily: '$body',
@@ -48,7 +48,7 @@ export const Text = createStyle({
         },
         highlight: {
             true: {
-                bg: '$yellow500',
+                bg: '$parchment',
             },
         },
         size: {

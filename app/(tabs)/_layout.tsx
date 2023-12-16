@@ -15,8 +15,9 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
     const activeColor = useToken('colors', 'pastelRedTertiary');
-    const tabBarColor = useToken('colors', 'latteFoamSecondary');
+    const tabBarColor = useToken('colors', 'latteFoam');
     const tabBarInactiveColor = useToken('colors', 'olive');
+    const borderColor = useToken('colors', 'latteFoamTertiary');
 
     return (
         <Tabs
@@ -25,12 +26,13 @@ export default function TabLayout() {
                 tabBarInactiveTintColor: tabBarInactiveColor,
                 tabBarStyle: {
                     backgroundColor: tabBarColor,
-                    borderTopWidth: 0,
-                    elevation: 0,
+                    borderTopColor: borderColor,
+                    borderTopWidth: 1,
                 },
-                headerShadowVisible: false,
                 headerStyle: {
                     backgroundColor: tabBarColor,
+                    borderBottomColor: borderColor,
+                    borderBottomWidth: 1,
                 },
                 tabBarShowLabel: false,
             }}
@@ -38,7 +40,8 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    tabBarIcon: ({color}) => <TabBarIcon name="circle-o" color={color} />,
+                    title: 'Home',
+                    tabBarIcon: ({color, focused}) => <TabBarIcon name={focused ? 'circle' : 'circle-o'} color={color} />,
                     headerRight: () => (
                         <Link href="/modal" asChild>
                             <Pressable
@@ -60,7 +63,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="two"
                 options={{
-                    tabBarIcon: ({color}) => <TabBarIcon name="circle" color={color} />,
+                    tabBarIcon: ({color, focused}) => <TabBarIcon name={focused ? 'circle' : 'circle-o'} color={color} />,
                 }}
             />
         </Tabs>

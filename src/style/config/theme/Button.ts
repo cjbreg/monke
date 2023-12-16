@@ -35,51 +35,51 @@ export const Button = createStyle({
     'variants': {
         action: {
             primary: {
-                'bg': '$primary500',
+                'bg': '$coffee',
                 'borderColor': '$primary300',
 
                 ':hover': {
-                    bg: '$primary300',
+                    bg: '$coffeeSecondary',
                     borderColor: '$primary400',
                 },
 
                 ':active': {
-                    bg: '$primary300',
+                    bg: '$coffeeSecondary',
                     borderColor: '$primary700',
                 },
 
                 '_text': {
-                    'color': '$primary600',
+                    'color': '$latteFoam',
                     ':hover': {
-                        color: '$primary600',
+                        color: '$latteFoamTertiary',
                     },
                     ':active': {
-                        color: '$primary700',
+                        color: '$latteFoamTertiary',
                     },
                 },
 
                 '_icon': {
-                    'color': '$primary600',
+                    'color': '$latteFoam',
                     ':hover': {
-                        color: '$primary600',
+                        color: '$latteFoamTertiary',
                     },
                     ':active': {
-                        color: '$primary700',
+                        color: '$latteFoamTertiary',
                     },
                 },
 
                 '_spinner': {
                     'props': {
-                        color: '$primary600',
+                        color: '$latteFoam',
                     },
                     ':hover': {
                         props: {
-                            color: '$primary600',
+                            color: '$latteFoamTertiary',
                         },
                     },
                     ':active': {
                         props: {
-                            color: '$primary700',
+                            color: '$latteFoamTertiary',
                         },
                     },
                 },
@@ -131,47 +131,52 @@ export const Button = createStyle({
                 },
             },
             secondary: {
-                'bg': '$secondary500',
+                'bg': '$oliveTertiary',
                 'borderColor': '$secondary300',
 
                 ':hover': {
-                    bg: '$secondary600',
+                    bg: '$olive',
                     borderColor: '$secondary400',
                 },
 
                 ':active': {
-                    bg: '$secondary700',
+                    bg: '$olive',
                     borderColor: '$secondary700',
                 },
 
                 '_text': {
-                    'color': '$secondary600',
+                    'color': '$latteFoam',
                     ':hover': {
-                        color: '$secondary600',
+                        color: '$latteFoamTertiary',
                     },
                     ':active': {
-                        color: '$secondary700',
+                        color: '$latteFoamTertiary',
                     },
                 },
+
                 '_icon': {
-                    'color': '$secondary600',
+                    'color': '$latteFoam',
                     ':hover': {
-                        color: '$secondary600',
+                        color: '$latteFoamTertiary',
                     },
                     ':active': {
-                        color: '$secondary700',
+                        color: '$latteFoamTertiary',
                     },
                 },
 
                 '_spinner': {
                     'props': {
-                        color: '$secondary600',
+                        color: '$latteFoam',
                     },
                     ':hover': {
-                        props: {color: '$secondary600'},
+                        props: {
+                            color: '$latteFoamTertiary',
+                        },
                     },
                     ':active': {
-                        props: {color: '$secondary700'},
+                        props: {
+                            color: '$latteFoamTertiary',
+                        },
                     },
                 },
 
@@ -307,44 +312,50 @@ export const Button = createStyle({
                 },
             },
             negative: {
-                'bg': '$error500',
+                'bg': '$pastelRedSecondary',
                 'borderColor': '$error300',
                 ':hover': {
-                    bg: '$error600',
+                    bg: '$pasterRedTertiary',
                     borderColor: '$error400',
                 },
 
                 ':active': {
-                    bg: '$error700',
+                    bg: '$pasterRedTertiary',
                     borderColor: '$error700',
                 },
                 '_text': {
-                    'color': '$error600',
+                    'color': '$latteFoam',
                     ':hover': {
-                        color: '$error600',
+                        color: '$latteFoamTertiary',
                     },
                     ':active': {
-                        color: '$error700',
+                        color: '$latteFoamTertiary',
                     },
                 },
+
                 '_icon': {
-                    'color': '$error600',
+                    'color': '$latteFoam',
                     ':hover': {
-                        color: '$error600',
+                        color: '$latteFoamTertiary',
                     },
                     ':active': {
-                        color: '$error700',
+                        color: '$latteFoamTertiary',
                     },
                 },
+
                 '_spinner': {
                     'props': {
-                        color: '$error600',
+                        color: '$latteFoam',
                     },
                     ':hover': {
-                        props: {color: '$error600'},
+                        props: {
+                            color: '$latteFoamTertiary',
+                        },
                     },
                     ':active': {
-                        props: {color: '$error700'},
+                        props: {
+                            color: '$latteFoamTertiary',
+                        },
                     },
                 },
                 '_dark': {
