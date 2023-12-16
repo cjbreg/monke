@@ -1,6 +1,6 @@
 import {Box, Button, ButtonText, Divider, Heading, Text, VStack} from '@gluestack-ui/themed';
-import LoadingView from '@components/layout/LoadingView';
-import {useGym} from '@/providers/gym/GymProvider';
+import LoadingView from '../../src/components/layout/LoadingView';
+import {useGym} from '../../src/providers/gym/GymProvider';
 
 export default function TabOneScreen() {
     const {gym, isLoading, setGymId} = useGym();
@@ -25,13 +25,17 @@ export default function TabOneScreen() {
                     />
                 </Box>
 
-                <Button
-                    onPress={() => {
-                        setGymId(gym?.id === 6 ? 5 : 6);
-                    }}
+                <Box
+                    alignItems='flex-start'
                 >
-                    <ButtonText>Switch Gym</ButtonText>
-                </Button>
+                    <Button
+                        onPress={() => {
+                            setGymId(gym?.id === 6 ? 5 : 6);
+                        }}
+                    >
+                        <ButtonText>Switch Gym</ButtonText>
+                    </Button>
+                </Box>
             </VStack>
         </LoadingView>
     );

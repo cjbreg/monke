@@ -46,8 +46,6 @@ const LoadingView = ({_spinner, isLoading, children, showSpinner = true, showCon
 const styles = StyleSheet.create({
     presenceWrapper: {
         flex: 1,
-        width: '100%',
-        height: '100%',
     },
 });
 

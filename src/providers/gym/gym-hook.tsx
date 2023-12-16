@@ -1,7 +1,7 @@
 import {Gym, GymAPI} from '@cjbreg/toplogger-sdk';
 import {useEffect, useState} from 'react';
 
-const useGymHook = (gymId: number | undefined) => {
+const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, string | unknown] => {
     const [gym, setGym] = useState<Gym | undefined>(undefined);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);

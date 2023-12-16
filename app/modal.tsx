@@ -1,5 +1,5 @@
 import {Heading, VStack} from '@gluestack-ui/themed';
-import Palette from '@components/cheatsheet/Palette';
+import Palette from '../src/components/cheatsheet/Palette';
 import {Platform} from 'react-native';
 import {StatusBar} from 'expo-status-bar';
 

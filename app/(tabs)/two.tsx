@@ -1,5 +1,5 @@
 import {Box, Divider, Heading} from '@gluestack-ui/themed';
-import EditScreenInfo from '@components/EditScreenInfo';
+import EditScreenInfo from '../../src/components/EditScreenInfo';
 
 
 export default function TabTwoScreen() {

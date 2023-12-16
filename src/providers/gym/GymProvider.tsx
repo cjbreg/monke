@@ -1,7 +1,7 @@
-import {createContext, useContext, useMemo} from 'react';
-import {isNil} from '@helpers/lang';
-import useGymHook from '@providers/gym/gym-hook';
-import usePersistedState from '@/hooks/persistedState-hook';
+import React, {createContext, useContext, useMemo} from 'react';
+import {isNil} from '../../helpers/lang';
+import useGymHook from '../../providers/gym/gym-hook';
+import usePersistedState from '../../hooks/persistedState-hook';
 
 type GymContextValue = ReturnType<typeof useProvideGym>;
 
@@ -24,7 +24,7 @@ export function GymProvider({
 }
 
 export const useGym = () => {
-    return useContext(GymContext);
+    return useContext(GymContext)!;
 };
 
 const useProvideGym = () => {
@@ -45,3 +45,5 @@ const useProvideGym = () => {
         isError,
     };
 };
+
+export default useProvideGym;

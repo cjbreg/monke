@@ -10,24 +10,4 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ],
-  "paths": {
-    "@/*" : [
-        "src/*"
-    ],
-    "@ui/*" : [
-        "src/ui/*"
-    ],
-    "@components/*" : [
-        "src/components/*"
-    ],
-    "@helpers/*" : [
-        "src/helpers/*"
-    ],
-    "@providers/*" : [
-        "src/providers/*"
-    ],
-    "@hooks/*" : [
-        "src/hooks/*"
-    ],
-  }
 }

@@ -1,6 +1,6 @@
 import {SplashScreen, Stack} from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Provider from '@providers';
+import Provider from '../src/providers';
 import {useEffect} from 'react';
 import {useFonts} from 'expo-font';
 import {useToken} from '@gluestack-style/react';
