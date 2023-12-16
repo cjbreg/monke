@@ -1,6 +1,6 @@
 import {Link, Tabs} from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {Pressable} from '@gluestack-ui/themed';
+import {Pressable, useToken} from '@gluestack-ui/themed';
 
 
 /**
@@ -14,10 +14,22 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
+    const activeColor = useToken('colors', 'pastelRedTertiary');
+    const tabBarColor = useToken('colors', 'latteFoamSecondary');
+
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: '#2f95dc',
+                tabBarActiveTintColor: activeColor,
+                tabBarStyle: {
+                    backgroundColor: tabBarColor,
+                    borderTopWidth: 0,
+                    elevation: 0,
+                },
+                headerShadowVisible: false,
+                headerStyle: {
+                    backgroundColor: tabBarColor,
+                },
             }}
         >
             <Tabs.Screen
@@ -34,7 +46,7 @@ export default function TabLayout() {
                                     <FontAwesome
                                         name="info-circle"
                                         size={25}
-                                        color="#2f95dc"
+                                        color={activeColor}
                                     />
                                 )}
                             </Pressable>

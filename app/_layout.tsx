@@ -3,6 +3,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Provider from '@providers';
 import {useEffect} from 'react';
 import {useFonts} from 'expo-font';
+import {useToken} from '@gluestack-style/react';
 
 export {
     // Catch any errors thrown by the Layout component.
@@ -44,10 +45,18 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+    const headerColor = useToken('colors', 'latteFoamSecondary');
+
 
     return (
         <Provider>
-            <Stack>
+            <Stack
+                screenOptions={{
+                    headerTintColor: headerColor,
+                    headerShadowVisible: false,
+                    navigationBarColor: headerColor,
+                }}
+            >
                 <Stack.Screen name="(tabs)" options={{headerShown: false}} />
 
                 <Stack.Screen name="modal" options={{presentation: 'modal'}} />

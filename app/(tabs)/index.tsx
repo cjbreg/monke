@@ -9,6 +9,7 @@ export default function TabOneScreen() {
             flex={1}
             alignItems="center"
             justifyContent="center"
+            bgColor='$latteFoam'
         >
             <Heading>Tab One</Heading>
 
