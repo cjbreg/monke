@@ -19,5 +19,14 @@
     "@components/*" : [
         "src/components/*"
     ],
+    "@helpers/*" : [
+        "src/helpers/*"
+    ],
+    "@providers/*" : [
+        "src/providers/*"
+    ],
+    "@hooks/*" : [
+        "src/hooks/*"
+    ],
   }
 }

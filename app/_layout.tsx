@@ -1,6 +1,6 @@
 import {SplashScreen, Stack} from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import StyleProvider from '../src/style/StyleProvider';
+import Provider from '@providers';
 import {useEffect} from 'react';
 import {useFonts} from 'expo-font';
 
@@ -46,12 +46,12 @@ export default function RootLayout() {
 function RootLayoutNav() {
 
     return (
-        <StyleProvider>
+        <Provider>
             <Stack>
                 <Stack.Screen name="(tabs)" options={{headerShown: false}} />
 
                 <Stack.Screen name="modal" options={{presentation: 'modal'}} />
             </Stack>
-        </StyleProvider>
+        </Provider>
     );
 }

@@ -1,26 +1,21 @@
-import {Box, Divider, Heading} from '@gluestack-ui/themed';
-import EditScreenInfo from '@components/EditScreenInfo';
+import {Heading, VStack} from '@gluestack-ui/themed';
+import Palette from '@components/cheatsheet/Palette';
 import {Platform} from 'react-native';
 import {StatusBar} from 'expo-status-bar';
 
 export default function ModalScreen() {
     return (
-        <Box
+        <VStack
             flex={1}
             alignItems='center'
             justifyContent='center'
+            space='xl'
         >
-            <Heading>Modal</Heading>
+            <Heading>Color Palette</Heading>
 
-            <Divider
-                my='$8'
-                bgColor='$primary500'
-                w='80%'
-            />
-
-            <EditScreenInfo path="app/modal.tsx" />
+            <Palette />
 
             <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-        </Box>
+        </VStack>
     );
 }

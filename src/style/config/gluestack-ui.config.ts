@@ -420,6 +420,23 @@ export const gluestackUIConfig = createConfig({
             backgroundDarkMuted: '#252526',
             white: '#FFFFFF',
             black: '#000000',
+
+            // palette
+            latteFoam: '#F2EFE9',
+            latteFoamSecondary: '#E9E3D3',
+            latteFoamTertiary: '#DEDAC7',
+            parchment: '#EBD188',
+            parchmentSecondary: '#E1C381',
+            parchmentTertiary: '#D8AF77',
+            pastelRed: '#AF524E',
+            pastelRedSecondary: '#A14440',
+            pastelRedTertiary: '#8F3431',
+            coffee: '#623C28',
+            coffeeSecondary: '#49271D',
+            coffeeTertiary: '#391914',
+            olive: '#736849',
+            oliveSecondary: '#57532F',
+            oliveTertiary: '#424220',
         },
         space: {
             'px': '1px',
