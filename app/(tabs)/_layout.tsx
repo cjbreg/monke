@@ -1,6 +1,6 @@
 import {Link, Tabs} from 'expo-router';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import {Pressable, useToken} from '@gluestack-ui/themed';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 
 /**
