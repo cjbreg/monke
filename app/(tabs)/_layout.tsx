@@ -16,11 +16,13 @@ function TabBarIcon(props: {
 export default function TabLayout() {
     const activeColor = useToken('colors', 'pastelRedTertiary');
     const tabBarColor = useToken('colors', 'latteFoamSecondary');
+    const tabBarInactiveColor = useToken('colors', 'olive');
 
     return (
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: activeColor,
+                tabBarInactiveTintColor: tabBarInactiveColor,
                 tabBarStyle: {
                     backgroundColor: tabBarColor,
                     borderTopWidth: 0,
@@ -30,13 +32,13 @@ export default function TabLayout() {
                 headerStyle: {
                     backgroundColor: tabBarColor,
                 },
+                tabBarShowLabel: false,
             }}
         >
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Tab One',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({color}) => <TabBarIcon name="circle-o" color={color} />,
                     headerRight: () => (
                         <Link href="/modal" asChild>
                             <Pressable
@@ -44,8 +46,8 @@ export default function TabLayout() {
                             >
                                 {() => (
                                     <FontAwesome
-                                        name="info-circle"
-                                        size={25}
+                                        name="search"
+                                        size={24}
                                         color={activeColor}
                                     />
                                 )}
@@ -58,8 +60,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="two"
                 options={{
-                    title: 'Tab Two',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({color}) => <TabBarIcon name="circle" color={color} />,
                 }}
             />
         </Tabs>
