@@ -10,12 +10,19 @@ const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, strin
     const gymApi = new GymAPI();
 
     useEffect(() => {
+        if(gym && gymId === gym.id) {
+            return;
+        }
+
         if (gymId) {
             getGym(gymId);
         }
     }, [gymId]);
 
     const getGym = async(gymId: number) => {
+        if(isLoading) {
+            return;
+        }
         setIsLoading(true);
         try {
             const result = await gymApi.getGym(gymId);

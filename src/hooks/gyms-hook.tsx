@@ -17,7 +17,6 @@ const useGymsHook = () => {
         setIsLoading(true);
         try {
             const result = await gymApi.getGyms();
-            console.log(result.ok);
 
             if (!result.ok) {
                 throw new Error('Failed to get gyms');
@@ -25,7 +24,6 @@ const useGymsHook = () => {
 
             setGyms(result.body);
         } catch (e) {
-            console.log(e);
             setError(e);
         } finally {
             setIsLoading(false);

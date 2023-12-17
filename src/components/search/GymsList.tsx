@@ -10,9 +10,9 @@ const GymsList = () => {
     const {gyms, isLoading} = useGymsHook();
 
     const activeGyms = gyms.filter(gym => gym.live === true);
+    const sortedGyms = activeGyms.sort((a, b) => a.name.localeCompare(b.name));
 
     const _renderItems: ListRenderItem<GymPreview> = ({item}) => <GymResult gym={item} />;
-
     const _renderSeparator = () => <Box p='$2' />;
 
     return (
@@ -20,7 +20,8 @@ const GymsList = () => {
             isLoading={isLoading}
         >
             <FlatList
-                data={activeGyms}
+                showsVerticalScrollIndicator={false}
+                data={sortedGyms}
                 renderItem={_renderItems}
                 keyExtractor={(item) => item.id.toString()}
                 ItemSeparatorComponent={_renderSeparator}
