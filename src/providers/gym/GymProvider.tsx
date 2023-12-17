@@ -40,6 +40,7 @@ const useProvideGym = () => {
 
     return {
         gym,
+        gymId,
         setGymId,
         isLoading,
         isError,

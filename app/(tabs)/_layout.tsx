@@ -43,7 +43,7 @@ export default function TabLayout() {
                     title: 'Home',
                     tabBarIcon: ({color, focused}) => <TabBarIcon name={focused ? 'circle' : 'circle-o'} color={color} />,
                     headerRight: () => (
-                        <Link href="/modal" asChild>
+                        <Link href="/search" asChild>
                             <Pressable
                                 px='$4'
                             >

@@ -1,9 +1,10 @@
-import {Box, Button, ButtonText, Divider, Heading, Text, VStack} from '@gluestack-ui/themed';
+import {Box, Divider, HStack, Heading, Text, VStack} from '@gluestack-ui/themed';
+import GymLogo from '../../src/components/GymLogo';
 import LoadingView from '../../src/components/layout/LoadingView';
 import {useGym} from '../../src/providers/gym/GymProvider';
 
 export default function TabOneScreen() {
-    const {gym, isLoading, setGymId} = useGym();
+    const {gym, isLoading} = useGym();
 
     return (
         <LoadingView
@@ -14,27 +15,25 @@ export default function TabOneScreen() {
                 justifyContent='space-between'
             >
                 <Box>
-                    <Heading>{gym?.name}</Heading>
+                    <HStack>
+                        <VStack flex={1} w="75%">
+                            <Heading>{gym?.name}</Heading>
 
-                    <Text>{gym?.nr_of_boulders} boulders</Text>
+                            <Text>{gym?.nr_of_boulders} boulders</Text>
+                        </VStack>
+
+                        {gym &&
+                            <GymLogo
+                                gym={gym}
+                            />
+                        }
+                    </HStack>
 
                     <Divider
                         my='$4'
                         bgColor='$coffee'
-                        w='80%'
+                        w='75%'
                     />
-                </Box>
-
-                <Box
-                    alignItems='flex-start'
-                >
-                    <Button
-                        onPress={() => {
-                            setGymId(gym?.id === 6 ? 5 : 6);
-                        }}
-                    >
-                        <ButtonText>Switch Gym</ButtonText>
-                    </Button>
                 </Box>
             </VStack>
         </LoadingView>

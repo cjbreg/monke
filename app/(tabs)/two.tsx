@@ -1,5 +1,6 @@
 import {Box, Divider, Heading} from '@gluestack-ui/themed';
-import EditScreenInfo from '../../src/components/EditScreenInfo';
+import Palette from '../../src/components/cheatsheet/Palette';
+
 
 
 export default function TabTwoScreen() {
@@ -10,15 +11,15 @@ export default function TabTwoScreen() {
             alignItems="center"
             justifyContent="center"
         >
-            <Heading>Tab Two</Heading>
+            <Heading>Color Palette</Heading>
+
+            <Palette />
 
             <Divider
                 my='$8'
                 bgColor='$primary500'
                 w='80%'
             />
-
-            <EditScreenInfo path="app/(tabs)/two.tsx" />
         </Box>
     );
 }

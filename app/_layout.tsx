@@ -47,7 +47,6 @@ export default function RootLayout() {
 function RootLayoutNav() {
     const headerColor = useToken('colors', 'latteFoamSecondary');
 
-
     return (
         <Provider>
             <Stack
@@ -59,7 +58,13 @@ function RootLayoutNav() {
             >
                 <Stack.Screen name="(tabs)" options={{headerShown: false}} />
 
-                <Stack.Screen name="modal" options={{presentation: 'modal'}} />
+                <Stack.Screen
+                    name="search"
+                    options={{
+                        presentation: 'modal',
+                        headerShown: false,
+                    }}
+                />
             </Stack>
         </Provider>
     );
