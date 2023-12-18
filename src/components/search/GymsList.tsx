@@ -15,6 +15,8 @@ const GymsList = () => {
     const _renderItems: ListRenderItem<GymPreview> = ({item}) => <GymResult gym={item} />;
     const _renderSeparator = () => <Box p='$2' />;
 
+
+    // TODO: migrate to FlashList
     return (
         <LoadingView
             isLoading={isLoading}

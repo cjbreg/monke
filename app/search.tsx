@@ -1,4 +1,4 @@
-import {Box, HStack, Heading, VStack} from '@gluestack-ui/themed';
+import {Box, HStack, Heading} from '@gluestack-ui/themed';
 import GymsList from '../src/components/search/GymsList';
 import LoadingView from '../src/components/layout/LoadingView';
 import {Platform} from 'react-native';
@@ -9,18 +9,15 @@ export default function ModalScreen() {
         <LoadingView
             isLoading={false}
         >
-            <Box flex={1}>
-                <VStack
-                    flex={1}
+            <Box>
+
+                <HStack
+                    justifyContent="center"
                 >
-                    <HStack
-                        justifyContent="center"
-                    >
-                        <Heading>
+                    <Heading>
                             Search
-                        </Heading>
-                    </HStack>
-                </VStack>
+                    </Heading>
+                </HStack>
 
                 <GymsList/>
 
