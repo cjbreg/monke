@@ -3,14 +3,19 @@ import GymsList from '../src/components/search/GymsList';
 import LoadingView from '../src/components/layout/LoadingView';
 import {Platform} from 'react-native';
 import {StatusBar} from 'expo-status-bar';
+import {router} from 'expo-router';
 
 export default function ModalScreen() {
+
+    const dismissModal = () => {
+        router.push('../');
+    };
+
     return (
         <LoadingView
             isLoading={false}
         >
             <Box>
-
                 <HStack
                     justifyContent="center"
                 >
@@ -19,7 +24,7 @@ export default function ModalScreen() {
                     </Heading>
                 </HStack>
 
-                <GymsList/>
+                <GymsList onDismiss={dismissModal} />
 
                 <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
             </Box>

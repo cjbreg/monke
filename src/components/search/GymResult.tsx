@@ -8,22 +8,19 @@ import {useGym} from '../../providers/gym/GymProvider';
 
 interface GymResultProps {
     gym: GymPreview | Gym;
+    onPress: () => void;
 }
 
 const GymResult = (props: GymResultProps) => {
-    const {gym} = props;
-    const {gymId, setGymId} = useGym();
+    const {gym, onPress} = props;
+    const {gymId} = useGym();
 
     const activeColor = useToken('colors', 'pastelRedTertiary');
 
     const isActive = gym.id === gymId;
 
-    const handleSelectGym = () =>{
-        setGymId(gym.id);
-    };
-
     return (
-        <TouchableOpacity onPress={handleSelectGym}>
+        <TouchableOpacity onPress={onPress}>
             <HStack
                 space='md'
             >
