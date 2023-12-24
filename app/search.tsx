@@ -4,12 +4,13 @@ import LoadingView from '../src/components/layout/LoadingView';
 import {Platform} from 'react-native';
 import {StatusBar} from 'expo-status-bar';
 import {router} from 'expo-router';
+import {useCallback} from 'react';
 
 export default function ModalScreen() {
 
-    const dismissModal = () => {
+    const dismissModal = useCallback(() => {
         router.push('../');
-    };
+    }, []);
 
     return (
         <LoadingView

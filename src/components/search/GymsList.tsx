@@ -3,7 +3,7 @@ import {Box} from '@gluestack-ui/themed';
 import {GymPreview} from '@cjbreg/toplogger-sdk';
 import GymResult from './GymResult';
 import LoadingView from '../layout/LoadingView';
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useGym} from '../../providers/gym/GymProvider';
 import useGymsHook from '../../hooks/gyms-hook';
 
@@ -21,10 +21,10 @@ const GymsList = (props: GymListProps) => {
     const activeGyms = gyms.filter(gym => gym.live === true);
     const sortedGyms = activeGyms.sort((a, b) => a.name.localeCompare(b.name));
 
-    const handleSelectGym = (gymId: number) => {
-        onDismiss();
+    const handleSelectGym = useCallback((gymId: number) => {
         setGymId(gymId);
-    };
+        onDismiss();
+    }, [setGymId, onDismiss]);
 
     const _renderItems: ListRenderItem<GymPreview> = ({item}) =>
         <GymResult
