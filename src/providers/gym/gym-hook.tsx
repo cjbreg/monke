@@ -20,9 +20,6 @@ const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, strin
     }, [gymId]);
 
     const getGym = async(gymId: number) => {
-        if(isLoading) {
-            return;
-        }
         setIsLoading(true);
         try {
             const result = await gymApi.getGym(gymId);

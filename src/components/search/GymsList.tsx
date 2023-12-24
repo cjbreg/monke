@@ -1,9 +1,9 @@
 import {FlashList, ListRenderItem} from '@shopify/flash-list';
+import React, {useCallback} from 'react';
 import {Box} from '@gluestack-ui/themed';
 import {GymPreview} from '@cjbreg/toplogger-sdk';
 import GymResult from './GymResult';
 import LoadingView from '../layout/LoadingView';
-import React, {useCallback} from 'react';
 import {useGym} from '../../providers/gym/GymProvider';
 import useGymsHook from '../../hooks/gyms-hook';
 
