@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#736849"
-      }
+      },
+      "package": "com.coenbreg.monke"
     },
     "plugins": [
       "expo-router"
