@@ -1,10 +1,11 @@
 import {Gym, GymAPI} from '@cjbreg/toplogger-sdk';
 import {useEffect, useState} from 'react';
 
-const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, string | unknown] => {
+const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, boolean, () => void, string | unknown] => {
     const [gym, setGym] = useState<Gym | undefined>(undefined);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isUpdating, setIsUpdating] = useState<boolean>(false);
     const [error, setError] = useState<unknown>(null);
 
     const gymApi = new GymAPI();
@@ -20,11 +21,13 @@ const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, strin
     }, [gymId]);
 
     const getGym = async(gymId: number) => {
-        setIsLoading(true);
+        if (gym && gymId === gym.id) {
+            setIsUpdating(true);
+        } else {
+            setIsLoading(true);
+        }
         try {
             const result = await gymApi.getGym(gymId);
-            console.log(result.ok);
-
             if (!result.ok) {
                 throw new Error('Failed to get gym');
             }
@@ -35,12 +38,23 @@ const useGymHook = (gymId: number | undefined): [Gym | undefined, boolean, strin
             setError(e);
         } finally {
             setIsLoading(false);
+            setTimeout(() => {
+                setIsUpdating(false);
+            }, 2000); // Delay to allow for animation
+        }
+    };
+
+    const refreshGym = () => {
+        if (gymId) {
+            getGym(gymId);
         }
     };
 
     return [
         gym,
         isLoading,
+        isUpdating,
+        refreshGym,
         error,
     ];
 };

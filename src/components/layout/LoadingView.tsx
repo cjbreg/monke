@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoadingView;
+export default React.memo(LoadingView);

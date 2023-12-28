@@ -29,11 +29,14 @@ export const useGym = () => {
 
 const useProvideGym = () => {
     const [gymId, setGymId] = usePersistedState<number>('gymId', 6);
-    const [gym, isGymHookLoading, gymHookError] = useGymHook(gymId);
+    const [gym, isGymHookLoading, isGymUpdating, refreshGym, gymHookError] = useGymHook(gymId);
 
     const isLoading = useMemo(() => {
         return isGymHookLoading;
     }, [isGymHookLoading]);
+    const isUpdating = useMemo(() => {
+        return isGymUpdating;
+    }, [isGymUpdating]);
     const isError = useMemo(() => {
         !isNil(gymHookError) ? true : false;
     }, [gymHookError]);
@@ -44,6 +47,8 @@ const useProvideGym = () => {
         setGymId,
         isLoading,
         isError,
+        isUpdating,
+        refreshGym,
     };
 };
 

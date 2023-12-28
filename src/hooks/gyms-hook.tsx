@@ -38,8 +38,8 @@ const useGymsHook = () => {
         }
     };
 
-    const refreshGyms = async() => {
-        await getGyms();
+    const refreshGyms = () => {
+        getGyms();
     };
 
     return {

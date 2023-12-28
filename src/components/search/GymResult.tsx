@@ -58,6 +58,4 @@ const GymResult = (props: GymResultProps) => {
     );
 };
 
-export default React.memo(GymResult, (prevProps, nextProps) => {
-    return prevProps.activeGymId === nextProps.activeGymId;
-});
+export default React.memo(GymResult);

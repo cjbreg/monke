@@ -12,8 +12,6 @@ interface HeaderProps {
 const Header = (props: HeaderProps) => {
     const {gym} = props;
 
-    console.log(gym.name, gym.id);
-
     return (
         <HStack>
             <VStack flex={1} w="75%">
@@ -31,4 +29,4 @@ const Header = (props: HeaderProps) => {
     );
 };
 
-export default Header;
+export default React.memo(Header);
