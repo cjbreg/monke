@@ -1,6 +1,7 @@
-import {Icon, Pressable, SearchIcon, useToken} from '@gluestack-ui/themed';
 import {Link, Tabs} from 'expo-router';
+import {Pressable, useToken} from '@gluestack-ui/themed';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import {SearchIcon} from '../../src/components/Icon';
 import {useColorScheme} from 'react-native';
 
 
@@ -53,9 +54,8 @@ export default function TabLayout() {
                                 px='$4'
                             >
                                 {() => (
-                                    <Icon
-                                        as={SearchIcon}
-                                        size='lg'
+                                    <SearchIcon
+                                        size='2xl'
                                         color='$pastelRedTertiary'
                                         $dark-color='$parchmentTertiary'
                                     />

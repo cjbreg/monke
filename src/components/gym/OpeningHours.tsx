@@ -1,4 +1,4 @@
-import {Box, ChevronRightIcon, HStack, Heading, Icon, Pressable, Text, VStack, View} from '@gluestack-ui/themed';
+import {Box, ChevronRightIcon, HStack, Heading, Pressable, Text, VStack, View} from '@gluestack-ui/themed';
 import React, {useState} from 'react';
 import Collapsible from 'react-native-collapsible';
 import {OpeningsHours} from '@cjbreg/toplogger-sdk/Models/Gym';
@@ -53,9 +53,8 @@ const OpeningHours = (props: OpeningHoursProps) => {
 
     const _titleRight = (
         <Box style={{transform : [{rotate: !isCollapsed ? '90deg' : '270deg'}]}}>
-            <Icon
-                as={ChevronRightIcon}
-                size='xl'
+            <ChevronRightIcon
+                size='2xl'
                 color='$pastelRed'
                 $dark-color='$parchmentTertiary'
             />

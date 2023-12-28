@@ -1,5 +1,6 @@
-import {Box, CheckIcon, Divider, HStack, Heading, Icon, Text, VStack} from '@gluestack-ui/themed';
+import {Box, Divider, HStack, Heading, Text, VStack} from '@gluestack-ui/themed';
 import {Gym, GymPreview} from '@cjbreg/toplogger-sdk';
+import {CheckIcon} from '../Icon';
 import GymLogo from '../GymLogo';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
@@ -46,9 +47,8 @@ const GymResult = (props: GymResultProps) => {
                     </VStack>
 
                     {isActive &&
-                        <Icon
-                            as={CheckIcon}
-                            size='xl'
+                        <CheckIcon
+                            size='2xl'
                             color='$pastelRedTertiary'
                             $dark-color='$parchmentTertiary'
                         />

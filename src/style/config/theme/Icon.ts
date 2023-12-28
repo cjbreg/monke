@@ -55,6 +55,22 @@ export const BaseIcon = createStyle({
                     size: 24,
                 },
             },
+            '2xl': {
+                h: '$7',
+                w: '$7',
+                props: {
+
+                    size: 28,
+                },
+            },
+            '3xl': {
+                h: '$8',
+                w: '$8',
+                props: {
+
+                    size: 32,
+                },
+            },
         },
     },
     // defaultProps: {
@@ -64,7 +80,7 @@ export const BaseIcon = createStyle({
 
 export const Icon = createStyle({
     props: {
-        size: 'md',
+        size: '2xl',
 
         fill: 'none',
     },
