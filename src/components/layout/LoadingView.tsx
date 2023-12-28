@@ -1,5 +1,5 @@
 
-import {Box, Spinner, styled} from '@gluestack-ui/themed';
+import {Box, Spinner} from '@gluestack-ui/themed';
 import {AnimatePresence} from 'moti';
 import {ComponentProps} from 'react';
 import FadeInView from '../animations/FadeInView';
@@ -15,30 +15,28 @@ interface PresenceProps extends IBoxProps {
     children: JSX.Element;
 }
 
-const LoadingBox = styled(Box, {
-    bgColor: '$latteFoam',
-    height: '$full',
-    py: '$4',
-    px: '$6',
-});
-
 const LoadingView = ({isLoading, children, showSpinner = true, showContent = true, ...restProps}: PresenceProps) => {
     const restPropsWithoutRef = restProps as Omit<typeof restProps, 'ref'>;
 
     return (
-        <LoadingBox
+        <Box
+            bgColor="latteFoam"
+            $dark-bg="$coffeeTertiary"
+            height="$full"
+            px="$6"
+            py="$4"
             {...restPropsWithoutRef}
         >
             <AnimatePresence exitBeforeEnter>
                 {isLoading && showSpinner && (
                     <FadeInView key="loader" style={styles.presenceWrapper}>
-                        <Spinner size='large' color='black' h={300}/>
+                        <Spinner size='large' color='coffeeTertiary' $dark-color='$latteFoam' h={300}/>
                     </FadeInView>
                 )}
 
                 {!isLoading && showContent && (<FadeInView key="children" style={styles.presenceWrapper}>{children}</FadeInView>)}
             </AnimatePresence>
-        </LoadingBox>
+        </Box>
     );
 };
 

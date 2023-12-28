@@ -1,6 +1,7 @@
 import {Link, Tabs} from 'expo-router';
 import {Pressable, useToken} from '@gluestack-ui/themed';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import useColorMode from '../../src/hooks/colorMode-hook';
 
 
 /**
@@ -14,10 +15,13 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-    const activeColor = useToken('colors', 'pastelRedTertiary');
-    const tabBarColor = useToken('colors', 'latteFoam');
-    const tabBarInactiveColor = useToken('colors', 'olive');
-    const borderColor = useToken('colors', 'latteFoamTertiary');
+    const {colorMode} = useColorMode();
+
+    const activeColor = useToken('colors', colorMode === 'light' ? 'pastelRedTertiary' : 'parchmentTertiary') ;
+    const tabBarColor = useToken('colors', colorMode === 'light' ? 'latteFoam' : 'coffeeTertiary');
+    const tabBarInactiveColor = useToken('colors', colorMode === 'light' ? 'olive' : 'latteFoamTertiary');
+    const borderColor = useToken('colors', colorMode === 'light' ? 'latteFoamTertiary' : 'olive');
+    const headingColor = useToken('colors', colorMode === 'light' ? 'textLight900' : 'latteFoam');
 
     return (
         <Tabs
@@ -33,6 +37,11 @@ export default function TabLayout() {
                     backgroundColor: tabBarColor,
                     borderBottomColor: borderColor,
                     borderBottomWidth: 1,
+                },
+                headerTintColor: headingColor,
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 20,
                 },
                 tabBarShowLabel: false,
             }}

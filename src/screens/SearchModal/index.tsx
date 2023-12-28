@@ -20,7 +20,7 @@ export default function SearchModal() {
                 <HStack
                     justifyContent="center"
                 >
-                    <Heading>
+                    <Heading >
                             Search
                     </Heading>
                 </HStack>

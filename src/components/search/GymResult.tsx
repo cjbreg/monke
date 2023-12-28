@@ -1,9 +1,10 @@
-import {Divider, HStack, Heading, VStack, useToken} from '@gluestack-ui/themed';
+import {Box, Divider, HStack, Heading, Text, VStack, useToken} from '@gluestack-ui/themed';
 import {Gym, GymPreview} from '@cjbreg/toplogger-sdk';
-import {Text, TouchableOpacity} from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
 import GymLogo from '../GymLogo';
 import React from 'react';
+import {TouchableOpacity} from 'react-native';
+import useColorMode from '../../hooks/colorMode-hook';
 
 interface GymResultProps {
     gym: GymPreview | Gym;
@@ -13,8 +14,8 @@ interface GymResultProps {
 
 const GymResult = (props: GymResultProps) => {
     const {gym, onPress, activeGymId} = props;
-
-    const activeColor = useToken('colors', 'pastelRedTertiary');
+    const {colorMode} = useColorMode();
+    const activeColor = useToken('colors', colorMode === 'light' ? 'pastelRedTertiary' : 'parchmentTertiary');
 
     const isActive = gym.id === activeGymId;
 
@@ -23,15 +24,18 @@ const GymResult = (props: GymResultProps) => {
             <HStack
                 space='md'
             >
-                <GymLogo
-                    gym={gym}
-                    height={50}
-                    width={50}
-                />
+                <Box>
+                    <GymLogo
+                        gym={gym}
+                        height={50}
+                        width={50}
+                    />
+                </Box>
 
                 <Divider
                     orientation="vertical"
                     bgColor='$coffee'
+                    $dark-bgColor='$olive'
                 />
 
                 <HStack flex={1} alignItems='center'>

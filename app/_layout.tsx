@@ -1,6 +1,7 @@
 import {SplashScreen, Stack} from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Provider from '../src/providers';
+import useColorMode from '../src/hooks/colorMode-hook';
 import {useEffect} from 'react';
 import {useFonts} from 'expo-font';
 import {useToken} from '@gluestack-style/react';
@@ -45,7 +46,9 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-    const headerColor = useToken('colors', 'latteFoamSecondary');
+    const {colorMode} = useColorMode();
+
+    const headerColor = useToken('colors', colorMode === 'light' ? 'latteFoamTertiary' : 'olive');
 
     return (
         <Provider>
