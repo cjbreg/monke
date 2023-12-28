@@ -18,7 +18,7 @@ export default function TabLayout() {
     const {colorMode} = useColorMode();
 
     const activeColor = useToken('colors', colorMode === 'light' ? 'pastelRedTertiary' : 'parchmentTertiary') ;
-    const tabBarColor = useToken('colors', colorMode === 'light' ? 'latteFoam' : 'coffeeTertiary');
+    const tabBarColor = useToken('colors', colorMode === 'light' ? 'latteFoam' : 'coffeeQuaternary');
     const tabBarInactiveColor = useToken('colors', colorMode === 'light' ? 'olive' : 'latteFoamTertiary');
     const borderColor = useToken('colors', colorMode === 'light' ? 'latteFoamTertiary' : 'olive');
     const headingColor = useToken('colors', colorMode === 'light' ? 'textLight900' : 'latteFoam');

@@ -21,7 +21,7 @@ const LoadingView = ({isLoading, children, showSpinner = true, showContent = tru
     return (
         <Box
             bgColor="latteFoam"
-            $dark-bg="$coffeeTertiary"
+            $dark-bg="$coffeeQuaternary"
             height="$full"
             px="$6"
             py="$4"

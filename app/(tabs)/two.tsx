@@ -17,7 +17,6 @@ export default function TabTwoScreen() {
 
             <Divider
                 my='$8'
-                bgColor='$primary500'
                 w='80%'
             />
         </Box>

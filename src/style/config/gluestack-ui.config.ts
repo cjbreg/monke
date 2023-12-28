@@ -434,6 +434,7 @@ export const gluestackUIConfig = createConfig({
             coffee: '#623C28',
             coffeeSecondary: '#49271D',
             coffeeTertiary: '#391914',
+            coffeeQuaternary: '#2C0F0B',
             olive: '#736849',
             oliveSecondary: '#57532F',
             oliveTertiary: '#424220',

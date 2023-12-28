@@ -3,7 +3,7 @@ import {createStyle} from '@gluestack-style/react';
 export const Text = createStyle({
     color: '$coffeeTertiary',
     _dark: {
-        color: '$latteFoamTertiary',
+        color: '$latteFoam',
     },
     fontWeight: '$normal',
     fontFamily: '$body',
