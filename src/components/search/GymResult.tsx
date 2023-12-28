@@ -1,10 +1,8 @@
-import {Box, Divider, HStack, Heading, Text, VStack, useToken} from '@gluestack-ui/themed';
+import {Box, CheckIcon, Divider, HStack, Heading, Icon, Text, VStack} from '@gluestack-ui/themed';
 import {Gym, GymPreview} from '@cjbreg/toplogger-sdk';
-import {FontAwesome} from '@expo/vector-icons';
 import GymLogo from '../GymLogo';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import useColorMode from '../../hooks/colorMode-hook';
 
 interface GymResultProps {
     gym: GymPreview | Gym;
@@ -14,8 +12,6 @@ interface GymResultProps {
 
 const GymResult = (props: GymResultProps) => {
     const {gym, onPress, activeGymId} = props;
-    const {colorMode} = useColorMode();
-    const activeColor = useToken('colors', colorMode === 'light' ? 'pastelRedTertiary' : 'parchmentTertiary');
 
     const isActive = gym.id === activeGymId;
 
@@ -50,10 +46,11 @@ const GymResult = (props: GymResultProps) => {
                     </VStack>
 
                     {isActive &&
-                        <FontAwesome
-                            name="check"
-                            size={24}
-                            color={activeColor}
+                        <Icon
+                            as={CheckIcon}
+                            size='xl'
+                            color='$pastelRedTertiary'
+                            $dark-color='$parchmentTertiary'
                         />
                     }
                 </HStack>

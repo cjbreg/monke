@@ -1,10 +1,10 @@
 import {SplashScreen, Stack} from 'expo-router';
+import {Box} from '@gluestack-ui/themed';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Provider from '../src/providers';
-import useColorMode from '../src/hooks/colorMode-hook';
+import {useColorScheme} from 'react-native';
 import {useEffect} from 'react';
 import {useFonts} from 'expo-font';
-import {useToken} from '@gluestack-style/react';
 
 export {
     // Catch any errors thrown by the Layout component.
@@ -46,29 +46,44 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-    const {colorMode} = useColorMode();
+    const colorMode = useColorScheme();
 
-    const headerColor = useToken('colors', colorMode === 'light' ? 'latteFoamTertiary' : 'olive');
+    const headerBarColor = colorMode === 'light' ? '#F2EFE9' : '#2C0F0B'; // Weirdly Modal doesn't inherit the colors from useToken
+    const headerTitleColor = colorMode === 'light' ? '#262626' : '#F2EFE9';
 
     return (
         <Provider>
-            <Stack
-                screenOptions={{
-                    headerTintColor: headerColor,
-                    headerShadowVisible: false,
-                    navigationBarColor: headerColor,
-                }}
+            <Box
+                flex={1}
+                bgColor="latteFoam"
+                $dark-bg="$coffeeQuaternary"
             >
-                <Stack.Screen name="(tabs)" options={{headerShown: false}} />
-
-                <Stack.Screen
-                    name="search"
-                    options={{
-                        presentation: 'modal',
-                        headerShown: false,
+                <Stack
+                    screenOptions={{
+                        headerTintColor: headerBarColor,
+                        headerShadowVisible: false,
+                        navigationBarColor: headerBarColor,
+                        headerStyle: {
+                            backgroundColor: headerBarColor,
+                        },
                     }}
-                />
-            </Stack>
+                >
+                    <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+
+                    <Stack.Screen
+                        name="search"
+                        options={{
+                            presentation: 'modal',
+                            headerShown: true,
+                            headerTintColor: headerTitleColor,
+                            headerStyle: {
+                                backgroundColor: headerBarColor,
+                            },
+                        }}
+                    />
+                </Stack>
+
+            </Box>
         </Provider>
     );
 }

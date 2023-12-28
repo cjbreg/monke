@@ -1,7 +1,7 @@
+import {Icon, Pressable, SearchIcon, useToken} from '@gluestack-ui/themed';
 import {Link, Tabs} from 'expo-router';
-import {Pressable, useToken} from '@gluestack-ui/themed';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import useColorMode from '../../src/hooks/colorMode-hook';
+import {useColorScheme} from 'react-native';
 
 
 /**
@@ -15,7 +15,7 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-    const {colorMode} = useColorMode();
+    const colorMode = useColorScheme();
 
     const activeColor = useToken('colors', colorMode === 'light' ? 'pastelRedTertiary' : 'parchmentTertiary') ;
     const tabBarColor = useToken('colors', colorMode === 'light' ? 'latteFoam' : 'coffeeQuaternary');
@@ -39,10 +39,6 @@ export default function TabLayout() {
                     borderBottomWidth: 1,
                 },
                 headerTintColor: headingColor,
-                headerTitleStyle: {
-                    fontWeight: 'bold',
-                    fontSize: 20,
-                },
                 tabBarShowLabel: false,
             }}
         >
@@ -57,10 +53,11 @@ export default function TabLayout() {
                                 px='$4'
                             >
                                 {() => (
-                                    <FontAwesome
-                                        name="search"
-                                        size={24}
-                                        color={activeColor}
+                                    <Icon
+                                        as={SearchIcon}
+                                        size='lg'
+                                        color='$pastelRedTertiary'
+                                        $dark-color='$parchmentTertiary'
                                     />
                                 )}
                             </Pressable>

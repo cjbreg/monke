@@ -1,4 +1,4 @@
-import {Box, HStack, Heading} from '@gluestack-ui/themed';
+import {Box} from '@gluestack-ui/themed';
 import GymsList from '../../components/search/GymsList';
 import LoadingView from '../../components/layout/LoadingView';
 import {Platform} from 'react-native';
@@ -17,14 +17,6 @@ export default function SearchModal() {
             isLoading={false}
         >
             <Box>
-                <HStack
-                    justifyContent="center"
-                >
-                    <Heading >
-                            Search
-                    </Heading>
-                </HStack>
-
                 <GymsList onDismiss={dismissModal} />
 
                 <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />

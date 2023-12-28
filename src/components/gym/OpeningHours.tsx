@@ -1,7 +1,6 @@
-import {Box, HStack, Heading, Pressable, Text, VStack, View, useToken} from '@gluestack-ui/themed';
+import {Box, ChevronRightIcon, HStack, Heading, Icon, Pressable, Text, VStack, View} from '@gluestack-ui/themed';
 import React, {useState} from 'react';
 import Collapsible from 'react-native-collapsible';
-import {FontAwesome} from '@expo/vector-icons';
 import {OpeningsHours} from '@cjbreg/toplogger-sdk/Models/Gym';
 import {currentDay} from '../../helpers/openingHours';
 
@@ -50,16 +49,15 @@ const OpeningHours = (props: OpeningHoursProps) => {
     const {hours} = props;
 
     const [isCollapsed, setIsCollapsed] = useState(true);
-    const iconColor = useToken('colors', 'pastelRed');
-
     const current = currentDay;
 
     const _titleRight = (
         <Box style={{transform : [{rotate: !isCollapsed ? '90deg' : '270deg'}]}}>
-            <FontAwesome
-                name="chevron-right"
-                size={24}
-                color={iconColor}
+            <Icon
+                as={ChevronRightIcon}
+                size='xl'
+                color='$pastelRed'
+                $dark-color='$parchmentTertiary'
             />
         </Box>
     );
