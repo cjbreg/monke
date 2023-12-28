@@ -1,10 +1,13 @@
 import {GymAPI, GymPreview} from '@cjbreg/toplogger-sdk';
-import {useEffect, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 
 const useGymsHook = () => {
     const [gyms, setGyms] = useState<GymPreview[]>([]);
 
+    const memoizedGyms = useMemo(() => gyms, [gyms]);
+
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isUpdating, setIsUpdating] = useState<boolean>(false);
     const [error, setError] = useState<unknown>(null);
 
     const gymApi = new GymAPI();
@@ -14,7 +17,11 @@ const useGymsHook = () => {
     }, []);
 
     const getGyms = async() => {
-        setIsLoading(true);
+        if (memoizedGyms.length > 0) {
+            setIsUpdating(true);
+        } else {
+            setIsLoading(true);
+        }
         try {
             const result = await gymApi.getGyms();
 
@@ -27,12 +34,19 @@ const useGymsHook = () => {
             setError(e);
         } finally {
             setIsLoading(false);
+            setIsUpdating(false);
         }
     };
 
+    const refreshGyms = async() => {
+        await getGyms();
+    };
+
     return {
-        gyms,
+        gyms: memoizedGyms,
         isLoading,
+        isUpdating,
+        refreshGyms,
         error,
     };
 };

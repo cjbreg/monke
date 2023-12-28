@@ -4,20 +4,19 @@ import {Text, TouchableOpacity} from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
 import GymLogo from '../GymLogo';
 import React from 'react';
-import {useGym} from '../../providers/gym/GymProvider';
 
 interface GymResultProps {
     gym: GymPreview | Gym;
     onPress: () => void;
+    activeGymId: number | undefined;
 }
 
 const GymResult = (props: GymResultProps) => {
-    const {gym, onPress} = props;
-    const {gymId} = useGym();
+    const {gym, onPress, activeGymId} = props;
 
     const activeColor = useToken('colors', 'pastelRedTertiary');
 
-    const isActive = gym.id === gymId;
+    const isActive = gym.id === activeGymId;
 
     return (
         <TouchableOpacity onPress={onPress}>
@@ -59,4 +58,6 @@ const GymResult = (props: GymResultProps) => {
     );
 };
 
-export default React.memo(GymResult);
+export default React.memo(GymResult, (prevProps, nextProps) => {
+    return prevProps.activeGymId === nextProps.activeGymId;
+});

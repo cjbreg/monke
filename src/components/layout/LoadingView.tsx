@@ -1,17 +1,14 @@
 
 import {Box, Spinner, styled} from '@gluestack-ui/themed';
 import {AnimatePresence} from 'moti';
+import {ComponentProps} from 'react';
 import FadeInView from '../animations/FadeInView';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-type SpinnerProps = typeof Spinner;
+type IBoxProps = ComponentProps<typeof Box>; // OMG!!!
 
-interface ILoadingScreenProps {
-    _spinner?: SpinnerProps;
-}
-
-interface PresenceProps extends ILoadingScreenProps {
+interface PresenceProps extends IBoxProps {
     isLoading: boolean;
     showSpinner?: boolean;
     showContent?: boolean;
@@ -25,15 +22,17 @@ const LoadingBox = styled(Box, {
     px: '$6',
 });
 
-const LoadingView = ({_spinner, isLoading, children, showSpinner = true, showContent = true, ...restProps}: PresenceProps) => {
+const LoadingView = ({isLoading, children, showSpinner = true, showContent = true, ...restProps}: PresenceProps) => {
+    const restPropsWithoutRef = restProps as Omit<typeof restProps, 'ref'>;
+
     return (
         <LoadingBox
-            {...restProps}
+            {...restPropsWithoutRef}
         >
             <AnimatePresence exitBeforeEnter>
                 {isLoading && showSpinner && (
                     <FadeInView key="loader" style={styles.presenceWrapper}>
-                        <Spinner size='large' color='black' h={300} {..._spinner}/>
+                        <Spinner size='large' color='black' h={300}/>
                     </FadeInView>
                 )}
 

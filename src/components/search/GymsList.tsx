@@ -1,9 +1,10 @@
 import {FlashList, ListRenderItem} from '@shopify/flash-list';
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {Box} from '@gluestack-ui/themed';
 import {GymPreview} from '@cjbreg/toplogger-sdk';
 import GymResult from './GymResult';
 import LoadingView from '../layout/LoadingView';
+import {RefreshControl} from 'react-native';
 import {useGym} from '../../providers/gym/GymProvider';
 import useGymsHook from '../../hooks/gyms-hook';
 
@@ -12,26 +13,29 @@ interface GymListProps {
 }
 
 const GymsList = (props: GymListProps) => {
-    const {gyms, isLoading} = useGymsHook();
-    const {setGymId} = useGym();
+    const {gyms, isLoading, isUpdating, refreshGyms} = useGymsHook();
+    const {setGymId, gym} = useGym();
 
     const {onDismiss} = props;
 
 
-    const activeGyms = gyms.filter(gym => gym.live === true);
-    const sortedGyms = activeGyms.sort((a, b) => a.name.localeCompare(b.name));
+    const activeGyms = useMemo(() => gyms.filter(gym => gym.live === true), [gyms]);
+    const sortedGyms = useMemo(() => activeGyms.sort((a, b) => a.name.localeCompare(b.name)), [activeGyms]);
 
     const handleSelectGym = useCallback((gymId: number) => {
         setGymId(gymId);
         onDismiss();
     }, [setGymId, onDismiss]);
 
-    const _renderItems: ListRenderItem<GymPreview> = ({item}) =>
+    const _renderItems: ListRenderItem<GymPreview> = useCallback(({item}) =>
         <GymResult
             gym={item}
             onPress={()=>handleSelectGym(item.id)}
-        />;
-    const _renderSeparator = () => <Box p='$2' />;
+            activeGymId={gym?.id}
+        />
+    , [handleSelectGym, gym]);
+
+    const _renderSeparator = useCallback(() => <Box p='$2' />, []);
 
     return (
         <LoadingView
@@ -45,6 +49,14 @@ const GymsList = (props: GymListProps) => {
                 keyExtractor={(item) => item.id.toString()}
                 ItemSeparatorComponent={_renderSeparator}
                 estimatedItemSize={67}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={isUpdating}
+                        onRefresh={() => {
+                            refreshGyms();
+                        }}
+                    />
+                }
             />
         </LoadingView>
     );
