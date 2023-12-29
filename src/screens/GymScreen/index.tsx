@@ -1,9 +1,9 @@
 import {Divider, ScrollView, VStack} from '@gluestack-ui/themed';
+import ColoredRefreshControl from '../../components/layout/ColoredRefreshControl';
 import Header from '../../components/gym/Header';
 import LoadingView from '../../components/layout/LoadingView';
 import NotFoundScreen from './NotFoundScreen';
 import OpeningHours from '../../components/gym/OpeningHours';
-import {RefreshControl} from 'react-native';
 import {useGym} from '../../providers/gym/GymProvider';
 
 
@@ -23,7 +23,7 @@ export default function GymScreen() {
                 px='$6'
                 py='$4'
                 refreshControl={
-                    <RefreshControl
+                    <ColoredRefreshControl
                         refreshing={isUpdating}
                         onRefresh={() => {
                             refreshGym();

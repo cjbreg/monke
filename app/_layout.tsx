@@ -55,7 +55,7 @@ function RootLayoutNav() {
         <Provider>
             <Box
                 flex={1}
-                bgColor="latteFoam"
+                bgColor="$latteFoam"
                 $dark-bg="$coffeeQuaternary"
             >
                 <Stack
