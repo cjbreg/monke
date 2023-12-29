@@ -1,10 +1,10 @@
 import {FlashList, ListRenderItem} from '@shopify/flash-list';
 import React, {useCallback, useMemo} from 'react';
 import {Box} from '@gluestack-ui/themed';
+import ColoredRefreshControl from '../layout/ColoredRefreshControl';
 import {GymPreview} from '@cjbreg/toplogger-sdk';
 import GymResult from './GymResult';
 import LoadingView from '../layout/LoadingView';
-import {RefreshControl} from 'react-native';
 import {useGym} from '../../providers/gym/GymProvider';
 import useGymsHook from '../../hooks/gyms-hook';
 
@@ -50,7 +50,7 @@ const GymsList = (props: GymListProps) => {
                 ItemSeparatorComponent={_renderSeparator}
                 estimatedItemSize={67}
                 refreshControl={
-                    <RefreshControl
+                    <ColoredRefreshControl
                         refreshing={isUpdating}
                         onRefresh={() => {
                             refreshGyms();

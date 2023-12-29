@@ -1,3 +1,4 @@
+
 import React, {ComponentProps} from 'react';
 import {RefreshControl, useColorScheme} from 'react-native';
 import {useToken} from '@gluestack-ui/themed';
@@ -6,14 +7,14 @@ type IRefreshControlProps = ComponentProps<typeof RefreshControl>;
 
 const ColoredRefreshControl = ({...restProps}: IRefreshControlProps) => {
     const colorMode = useColorScheme();
-    const refreshColor = useToken('colors', colorMode !== 'light' ? '$latteFoam' : '$coffeeQuaternary');
-
+    const tintColor = useToken('colors', colorMode !== 'light' ? 'latteFoam' : 'coffeeQuaternary');
+    const color = useToken('colors', 'coffeeQuaternary');
 
     return (
         <RefreshControl
             {...restProps}
-            tintColor={refreshColor}
-            colors={[refreshColor]}
+            tintColor={tintColor}
+            colors={[color]}
         />
     );
 };
