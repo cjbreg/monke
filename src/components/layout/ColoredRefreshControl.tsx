@@ -7,8 +7,8 @@ type IRefreshControlProps = ComponentProps<typeof RefreshControl>;
 
 const ColoredRefreshControl = ({...restProps}: IRefreshControlProps) => {
     const colorMode = useColorScheme();
-    const tintColor = useToken('colors', colorMode !== 'light' ? 'latteFoam' : 'coffeeQuaternary');
-    const color = useToken('colors', 'coffeeQuaternary');
+    const tintColor = useToken('colors', colorMode !== 'light' ? 'latteFoam' : 'coffee');
+    const color = useToken('colors', 'coffee');
 
     return (
         <RefreshControl

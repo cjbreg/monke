@@ -85,7 +85,7 @@ export const Button = createStyle({
                 },
 
                 '_dark': {
-                    'bg': '$primary400',
+                    'bg': '$olive',
                     'borderColor': '$primary700',
                     ':hover': {
                         bg: '$primary500',

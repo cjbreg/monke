@@ -10,7 +10,13 @@ import {useGym} from '../../providers/gym/GymProvider';
 export default function GymScreen() {
     const {gym, isLoading, isUpdating, refreshGym} = useGym();
     if (!gym) {
-        return <NotFoundScreen/>;
+        return (
+            <LoadingView
+                isLoading={isLoading}
+            >
+                <NotFoundScreen/>
+            </LoadingView>
+        );
     }
 
     return (
@@ -33,11 +39,11 @@ export default function GymScreen() {
             >
                 <VStack
                     flex={1}
+                    gap='$4'
                 >
                     <Header gym={gym} />
 
                     <Divider
-                        my='$4'
                         bgColor='$coffee'
                         w='75%'
                     />
@@ -45,7 +51,6 @@ export default function GymScreen() {
                     <OpeningHours
                         hours={gym.opening_hours}
                     />
-
                 </VStack>
             </ScrollView>
         </LoadingView>
