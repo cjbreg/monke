@@ -7,6 +7,7 @@ import GymCard from '../../components/gym/GymCard';
 import LoadingView from '../../components/layout/LoadingView';
 import NotFoundScreen from './NotFoundScreen';
 import OpeningHours from '../../components/gym/OpeningHours';
+import Toast from 'react-native-toast-message';
 import {useGym} from '../../providers/gym/GymProvider';
 
 
@@ -72,6 +73,13 @@ export default function GymScreen() {
                     <Button
                         action='secondary'
                         gap='$2'
+
+                        onPress={() => (
+                            Toast.show({
+                                text1: 'Hello',
+                                text2: 'This is a toast description.',
+                            })
+                        )}
                     >
                         <Button.Text>
                             Second

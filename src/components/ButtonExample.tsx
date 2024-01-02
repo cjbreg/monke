@@ -1,8 +1,8 @@
 import {HStack, Icon, VStack, useToast} from '@gluestack-ui/themed';
 import Button from '../ui/atoms/Button';
+import {ChevronRightIcon} from './Icon';
 import React from 'react';
 import Toast from '../ui/atoms/Toast';
-import {ChevronRightIcon} from './Icon';
 
 const ButtonExample = () => {
     const {show, close, isActive} = useToast();
@@ -12,9 +12,8 @@ const ButtonExample = () => {
             onPress={() => {
                 show({
                     placement: 'top',
-                    render: ({id}: {id: number}) => {
-                        const toastId = 'toast-' + id;
-
+                    render: ({id}) => {
+                        const toastId = id.toString();
                         const handleClose = () => {
                             close(id);
                         };
@@ -28,6 +27,7 @@ const ButtonExample = () => {
                                 nativeID={toastId}
                                 action="attention"
                                 variant="accent"
+                                onDismiss={handleClose}
                             >
                                 <HStack
                                     justifyContent='space-between'

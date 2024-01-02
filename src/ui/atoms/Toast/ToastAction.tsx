@@ -1,5 +1,5 @@
-import {Pressable} from '@gluestack-ui/themed';
 import React from 'react';
+import {TouchableOpacity} from 'react-native';
 
 type ActionProps = {
     children: React.ReactNode;
@@ -8,12 +8,11 @@ type ActionProps = {
 
 const ToastAction = ({children, onPress}: ActionProps) => {
     return (
-        <Pressable
-            p='$2'
+        <TouchableOpacity
             onPress={onPress}
         >
             {children}
-        </Pressable>
+        </TouchableOpacity>
     );
 };
 
