@@ -9,10 +9,12 @@ interface Props extends IButtonProps {
 }
 
 const Button = ({children, ...restProps}: Props) => {
+    const restPropsWithoutRef = restProps as Omit<typeof restProps, 'ref'>;
+
     return (
         <ButtonGroup >
             <GlueButton
-                {...restProps}
+                {...restPropsWithoutRef}
             >
                 {children }
             </GlueButton>

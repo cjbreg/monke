@@ -1,6 +1,8 @@
-import {HStack, Pressable, Toast, ToastDescription, ToastTitle, VStack, useToast} from '@gluestack-ui/themed';
+import {HStack, Icon, VStack, useToast} from '@gluestack-ui/themed';
 import Button from '../ui/atoms/Button';
 import React from 'react';
+import Toast from '../ui/atoms/Toast';
+import {ChevronRightIcon} from './Icon';
 
 const ButtonExample = () => {
     const {show, close, isActive} = useToast();
@@ -23,12 +25,10 @@ const ButtonExample = () => {
 
                         return (
                             <Toast
-                                nativeID={toastId} // Missing safearea context for Android: https://github.com/gluestack/gluestack-ui/issues/1334
+                                nativeID={toastId}
                                 action="attention"
                                 variant="accent"
-                                overflow="hidden"
                             >
-
                                 <HStack
                                     justifyContent='space-between'
                                     alignItems='center'
@@ -37,21 +37,19 @@ const ButtonExample = () => {
                                     <VStack
                                         gap='$2'
                                     >
-                                        <ToastTitle>Attention</ToastTitle>
+                                        <Toast.Title>Attention</Toast.Title>
 
-                                        <ToastDescription>
+                                        <Toast.Description>
                                                 This is a toast description.
-                                        </ToastDescription>
+                                        </Toast.Description>
                                     </VStack>
 
-                                    <Pressable
+                                    <Toast.Action
                                         onPress={handleClose}
-                                        px='$2'
                                     >
-                                        <ToastTitle>X</ToastTitle>
-                                    </Pressable>
+                                        <Icon as={ChevronRightIcon} />
+                                    </Toast.Action>
                                 </HStack>
-
                             </Toast>
                         );
                     },

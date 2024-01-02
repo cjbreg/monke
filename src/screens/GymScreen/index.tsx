@@ -72,16 +72,12 @@ export default function GymScreen() {
                     <Button
                         action='secondary'
                         gap='$2'
-                        onPress={() => {
-                            console.log('pressed');
-                        }}
                     >
                         <Button.Text>
                             Second
                         </Button.Text>
 
                         <Button.Icon as={CheckIcon} size='xl' />
-
                     </Button>
 
                 </HStack>
