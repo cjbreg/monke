@@ -1,4 +1,5 @@
 import {Divider, ScrollView, VStack} from '@gluestack-ui/themed';
+import ButtonExample from '../../components/ButtonExample';
 import ColoredRefreshControl from '../../components/layout/ColoredRefreshControl';
 import Header from '../../components/gym/Header';
 import LoadingView from '../../components/layout/LoadingView';
@@ -9,6 +10,8 @@ import {useGym} from '../../providers/gym/GymProvider';
 
 export default function GymScreen() {
     const {gym, isLoading, isUpdating, refreshGym} = useGym();
+
+
     if (!gym) {
         return (
             <LoadingView
@@ -36,6 +39,8 @@ export default function GymScreen() {
                         }}
                     />
                 }
+                // eslint-disable-next-line react-native/no-inline-styles
+                contentContainerStyle={{flexGrow: 1}}
             >
                 <VStack
                     flex={1}
@@ -52,6 +57,8 @@ export default function GymScreen() {
                         hours={gym.opening_hours}
                     />
                 </VStack>
+
+                <ButtonExample />
             </ScrollView>
         </LoadingView>
 
