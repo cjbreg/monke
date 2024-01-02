@@ -1,9 +1,9 @@
+import {Box, Divider} from '@gluestack-ui/themed';
 import {FlashList, ListRenderItem} from '@shopify/flash-list';
 import React, {useCallback, useMemo} from 'react';
-import {Box} from '@gluestack-ui/themed';
 import ColoredRefreshControl from '../layout/ColoredRefreshControl';
+import GymListItem from './GymListItem';
 import {GymPreview} from '@cjbreg/toplogger-sdk';
-import GymResult from './GymResult';
 import LoadingView from '../layout/LoadingView';
 import {useGym} from '../../providers/gym/GymProvider';
 import useGymsHook from '../../hooks/gyms-hook';
@@ -28,11 +28,25 @@ const GymsList = (props: GymListProps) => {
     }, [setGymId, onDismiss]);
 
     const _renderItems: ListRenderItem<GymPreview> = useCallback(({item}) =>
-        <GymResult
-            gym={item}
+        <GymListItem
+            gymPreview={item}
             onPress={()=>handleSelectGym(item.id)}
             activeGymId={gym?.id}
-        />
+        >
+            <GymListItem.Logo />
+
+            <Divider
+                orientation="vertical"
+                bgColor='$coffee'
+                $dark-bgColor='$olive'
+            />
+
+            <GymListItem.Heading>
+                <GymListItem.Title />
+
+                <GymListItem.Subtitle />
+            </GymListItem.Heading>
+        </GymListItem>
     , [handleSelectGym, gym]);
 
     const _renderSeparator = useCallback(() => <Box p='$2' />, []);

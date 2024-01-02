@@ -1,5 +1,7 @@
-import {Divider, ScrollView, VStack} from '@gluestack-ui/themed';
+import {Divider, HStack, ScrollView, VStack} from '@gluestack-ui/themed';
+import Button from '../../ui/atoms/Button';
 import ButtonExample from '../../components/ButtonExample';
+import {CheckIcon} from '../../components/Icon';
 import ColoredRefreshControl from '../../components/layout/ColoredRefreshControl';
 import GymCard from '../../components/gym/GymCard';
 import LoadingView from '../../components/layout/LoadingView';
@@ -64,7 +66,25 @@ export default function GymScreen() {
                     />
                 </VStack>
 
-                <ButtonExample />
+                <HStack justifyContent='space-between'>
+                    <ButtonExample />
+
+                    <Button
+                        action='secondary'
+                        gap='$2'
+                        onPress={() => {
+                            console.log('pressed');
+                        }}
+                    >
+                        <Button.Text>
+                            Second
+                        </Button.Text>
+
+                        <Button.Icon as={CheckIcon} size='xl' />
+
+                    </Button>
+
+                </HStack>
             </ScrollView>
         </LoadingView>
 

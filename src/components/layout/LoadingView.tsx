@@ -6,7 +6,7 @@ import FadeInView from '../animations/FadeInView';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-type IBoxProps = ComponentProps<typeof Box>; // OMG!!!
+type IBoxProps = ComponentProps<typeof Box>;
 
 interface PresenceProps extends IBoxProps {
     isLoading: boolean;
