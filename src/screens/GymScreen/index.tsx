@@ -1,7 +1,7 @@
 import {Divider, ScrollView, VStack} from '@gluestack-ui/themed';
 import ButtonExample from '../../components/ButtonExample';
 import ColoredRefreshControl from '../../components/layout/ColoredRefreshControl';
-import Header from '../../components/gym/Header';
+import GymCard from '../../components/gym/GymCard';
 import LoadingView from '../../components/layout/LoadingView';
 import NotFoundScreen from './NotFoundScreen';
 import OpeningHours from '../../components/gym/OpeningHours';
@@ -46,7 +46,13 @@ export default function GymScreen() {
                     flex={1}
                     gap='$4'
                 >
-                    <Header gym={gym} />
+                    <GymCard gym={gym}>
+                        <GymCard.Header>
+                            <GymCard.Title />
+
+                            <GymCard.Logo />
+                        </GymCard.Header>
+                    </GymCard>
 
                     <Divider
                         bgColor='$coffee'
