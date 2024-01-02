@@ -1,6 +1,5 @@
 import {Divider, HStack, ScrollView, VStack} from '@gluestack-ui/themed';
 import Button from '../../ui/atoms/Button';
-import ButtonExample from '../../components/ButtonExample';
 import {CheckIcon} from '../../components/Icon';
 import ColoredRefreshControl from '../../components/layout/ColoredRefreshControl';
 import GymCard from '../../components/gym/GymCard';
@@ -68,12 +67,20 @@ export default function GymScreen() {
                 </VStack>
 
                 <HStack justifyContent='space-between'>
-                    <ButtonExample />
+                    <Button
+                        onPress={() => (
+                            Toast.show({
+                                text1: 'Attention',
+                                text2: 'This is a toast description.',
+                            })
+                        )}
+                    >
+                        <Button.Text>Toast test</Button.Text>
+                    </Button>
 
                     <Button
                         action='secondary'
                         gap='$2'
-
                         onPress={() => (
                             Toast.show({
                                 text1: 'Hello',
