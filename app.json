@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "monke",
+    "name": "Monke",
     "slug": "monke",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -31,6 +31,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "225e138b-7dc8-445e-a9b7-8c4f595d3ec6"
+      }
     }
   }
 }
