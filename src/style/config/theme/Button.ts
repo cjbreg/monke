@@ -7,7 +7,7 @@ export const Button = createStyle({
     'alignItems': 'center',
 
     '_text': {
-        color: '$textLight0',
+        color: '$green500',
         fontWeight: '$semibold',
         _dark: {
             color: '$textDark0',
@@ -15,7 +15,7 @@ export const Button = createStyle({
     },
 
     '_icon': {
-        color: '$textLight0',
+        color: '$red400',
         _dark: {
             color: '$textDark0',
         },
@@ -49,7 +49,7 @@ export const Button = createStyle({
                 },
 
                 '_text': {
-                    'color': '$latteFoam',
+                    'color': '$green500',
                     ':hover': {
                         color: '$latteFoamTertiary',
                     },

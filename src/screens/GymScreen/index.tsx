@@ -79,7 +79,7 @@ export default function GymScreen() {
                     </Button>
 
                     <Button
-                        action='secondary'
+                        action='negative'
                         gap='$2'
                         onPress={() => (
                             Toast.show({

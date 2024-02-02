@@ -72,6 +72,13 @@ export default function TabLayout() {
                     tabBarIcon: ({color, focused}) => <TabBarIcon name={focused ? 'circle' : 'circle-o'} color={color} />,
                 }}
             />
+
+            <Tabs.Screen
+                name="three"
+                options={{
+                    tabBarIcon: ({color, focused}) => <TabBarIcon name={focused ? 'circle' : 'circle-o'} color={color} />,
+                }}
+            />
         </Tabs>
     );
 }
